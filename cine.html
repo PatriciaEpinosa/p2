@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletos de Cine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #0f2027 0%, #2c5364 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cine-container {
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(44,83,100,0.25);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #0f2027;
+        }
+        .cine-container::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            border-radius: 50%;
+            opacity: 0.18;
+            z-index: 0;
+        }
+        .cine-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cine-header h1 {
+            font-size: 2.1rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #185a9d;
+        }
+        .cine-header .icon {
+            font-size: 2.7rem;
+            color: #43cea2;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #185a9d;
+        }
+        form input[type="text"],
+        form input[type="number"],
+        form select {
+            width: 100%;
+            padding: 0.55rem;
+            margin-bottom: 1.1rem;
+            border: 1.5px solid #43cea2;
+            border-radius: 10px;
+            background: #f5fafd;
+            color: #222;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border 0.2s, background 0.2s;
+        }
+        form input[type="text"]:focus,
+        form input[type="number"]:focus,
+        form select:focus {
+            border: 1.5px solid #185a9d;
+            background: #e3f6f5;
+        }
+        #campoNinos {
+            margin-bottom: 1rem;
+        }
+
+        form button {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(24,90,157,0.08);
+            transition: background 0.2s, transform 0.1s;
+        }
+        form button:hover {
+            background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="cine-container">
+        <div class="cine-header">  
+            <h1>Boletos de Cine</h1>
+        </div>
+        <form action="cine.php" method="post" id="cine" autocomplete="off">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required>
+
+            <label for="pelicula">Película</label>
+            <select name="pelicula" id="pelicula" required>
+                <option value="">Elige una película</option>
+                <option value="gastbi">Gatsby</option>
+                <option value="interstellar">Interstellar</option>
+                <option value="gigantes de acero">Gigantes de Acero</option>
+                <option value="depredador">Depredador</option>
+                <option value="sombras">Sombras Tenebrosas</option>
+                <option value="minions">minions </option>
+                <option value="terminator">Terminator</option>
+                <option value="Memorias">Memorias de un Caracol</option>
+                <option value="el cadaver de la novia">El Cadáver de la Novia</option>
+                <option value="el resplandor">El Resplandor</option>
+            </select>
+
+            <label for="sala">Sala</label>
+            <select name="sala" id="sala" required>
+                <option value="">Elige una sala</option>
+                <option value="normal">Normal - 75 $pesos</option>
+                <option value="3D">Sala 3D - 110 $pesos</option>
+                <option value="vip">VIP - 145 $pesos</option>
+            </select>
+
+            <label for="boletos">No. de boletos</label>
+            <input type="number" name="boletos" id="boletos" min="1" required>
+
+            <label for="niños">¿Lleva niños?</label>
+            <select name="niños" id="niños" required>
+                <option value="">Elige una opción</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+
+            <span id="campoNinos" style="display:none;">
+                <label for="cuantos">¿Cuántos niños lleva?</label>
+                <input type="number" name="cuantos" id="cuantos" min="1">
+            </span>
+
+            <button type="submit">Comprar Boletos</button>
+            <a href="ayudacine.php">consulta</a>
+            <a href="graficascine.php">graficas</a>
+        </form>
+    </div>
+<script>
+    const niños = document.getElementById('niños');
+    const campoNinos = document.getElementById('campoNinos');
+    const cuantos = document.getElementById('cuantos');
+    const boletos = document.getElementById('boletos');
+
+    niños.addEventListener('change', () => {
+        if (niños.value === 'si') {
+            campoNinos.style.display = '';
+            cuantos.required = true;
+            cuantos.value = '';
+            cuantos.max = boletos.value ? boletos.value - 1 : 1;
+        } else {
+            campoNinos.style.display = 'none';
+            cuantos.value = '';
+            cuantos.required = false;
+        }
+    });
+
+    boletos.addEventListener('input', () => {
+        const totalBoletos = parseInt(boletos.value) || 1;
+        if (niños.value === 'si') {
+            cuantos.max = totalBoletos - 1;
+            if (parseInt(cuantos.value) > totalBoletos - 1) {
+                cuantos.value = totalBoletos - 1;
+            }
+        }
+    });
+
+    cuantos.addEventListener('input', () => {
+        const totalBoletos = parseInt(boletos.value) || 1;
+        const totalNinos = parseInt(cuantos.value) || 0;
+        if (totalNinos >= totalBoletos) {
+            cuantos.value = totalBoletos - 1 > 0 ? totalBoletos - 1 : 1;
+        }
+    });
+</script>
+</body>
+</html>

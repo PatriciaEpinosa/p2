@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU PRACTICA"CINE"</title>
+     <div class="menu">
+        <a href="cine.html">FORMULARIO</a>
+    </div>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0D1B2A, #1B263B, #415A77);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #bd9354;
+            padding: 1em;
+            gap: 1em;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            padding: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #966c3b;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+
+        .carousel {
+            position: relative;
+            width: 90%;
+            height: 600px;
+            margin: 40px auto;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .carousel-prev {
+            left: 0;
+        }
+
+        .carousel-next {
+            right: 0;
+        }
+
+        .cartelera {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .cartelera .movie {
+            position: relative;
+        }
+
+        .cartelera img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cartelera .movie:hover img {
+            transform: scale(1.05);
+        }
+
+        .cartelera .sinopsis {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cartelera .movie:hover .sinopsis {
+            opacity: 1;
+        }
+        .logo {
+     display: block;
+     margin: 20px auto; 
+      width: 250px;      
+       height: auto;      
+     border-radius: 50px;
+         } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1>cine pato </h1>
+    </header>
+
+    <div style="text-align: center; margin-top: 1em;">
+        <p>¡Cine Pato!
+        ¡Disfruta de las peliculas disponibles para ti y tu familia! 
+        </p>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img5/ChatGPT Image 23 oct 2025, 09_51_39 p.m..png" class="logo"   alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="img5/inter.jpg" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="img5/el res.jpg" alt="Imagen 3">
+            </div>
+            <div class="carousel-item">
+                <img src="img5/gastbi.jpg" alt="Imagen 4">
+            </div>
+            <div class="carousel-item">
+                <img src="img5/pino.jpg" white="20px" height="20px" alt="Imagen 5">
+            </div>
+        </div>
+        <button class="carousel-prev" onclick="prevSlide()">Anterior</button>
+        <button class="carousel-next" onclick="nextSlide()">Siguiente</button>
+    </div>
+
+    <div class="cartelera">
+        <div class="movie">
+    <img src="img5/gastbi.jpg" alt="Película 1">
+    <div class="sinopsis">
+        <h2>El Gran Gatsby</h2>
+        <p>Jay Gatsby es un misterioso millonario que organiza fiestas extravagantes en su mansión de Long Island, con la esperanza de reencontrarse con Daisy Buchanan, el amor de su vida. La historia explora el amor, la ambición y la decadencia del sueño americano en los años 20.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/inter.jpg"interstellar.jpg" alt="Película 2">
+    <div class="sinopsis">
+        <h2>Interestellar</h2>
+        <p>Un grupo de exploradores viaja a través de un agujero de gusano en el espacio en busca de un nuevo hogar para la humanidad. Mientras tanto, el amor entre un padre y su hija se convierte en el lazo que trasciende el tiempo y el espacio.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/gigante.jpg"gigantesdeacero.jpg" alt="Película 3">
+    <div class="sinopsis">
+        <h2>Gigantes de Acero</h2>
+        <p>En un futuro cercano, los combates de boxeo son sustituidos por robots controlados por humanos. Un exboxeador y su hijo intentan triunfar en este nuevo deporte con un viejo robot de entrenamiento que demuestra tener más corazón de lo esperado.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/depredador.jpg"depredador.jpg" alt="Película 4">
+    <div class="sinopsis">
+        <h2>Depredador</h2>
+        <p>Un grupo de comandos es enviado a una misión en la selva, pero pronto descubren que son cazados por una criatura alienígena con tecnología avanzada. La lucha por la supervivencia se convierte en una batalla entre el cazador y su presa.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/sombras.jpg"sombrastenebrosas.jpg" alt="Película 5">
+    <div class="sinopsis">
+        <h2>Sombras Tenebrosas</h2>
+        <p>Después de ser convertido en vampiro y sepultado por siglos, Barnabas Collins despierta en los años 70. Intentará restaurar el prestigio de su familia mientras enfrenta a la bruja que lo maldijo.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/minions.jpg"minions.jpg" alt="Película 6">
+    <div class="sinopsis">
+        <h2>Minions</h2>
+        <p>Antes de conocer a Gru, los Minions emprendieron un viaje para encontrar al villano más malvado al que servir. Su búsqueda los lleva a la malévola Scarlet Overkill, quien los envía en una misión para conquistar el mundo.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/termi.jpg"terminator.jpg" alt="Película 7">
+    <div class="sinopsis">
+        <h2>Terminator</h2>
+        <p>Un cyborg asesino es enviado desde el futuro para matar a Sarah Connor, cuyo hijo será el líder de la resistencia humana contra las máquinas. Un soldado también viaja en el tiempo para protegerla y asegurar el futuro de la humanidad.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/cara.jpg"memoriasdeuncaracol.jpg" alt="Película 8">
+    <div class="sinopsis">
+        <h2>Memorias de un Caracol</h2>
+        <p>Una historia introspectiva sobre la soledad, el paso del tiempo y la búsqueda del sentido de la vida, narrada desde la perspectiva de un caracol que observa el mundo con calma y sabiduría.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/cadaver.jpg"cadaverdelanovia.jpg" alt="Película 9">
+    <div class="sinopsis">
+        <h2>El Cadáver de la Novia</h2>
+        <p>Víctor, un joven nervioso, ensaya sus votos matrimoniales en el bosque y accidentalmente propone matrimonio a una novia muerta, que lo lleva al mundo de los muertos. Allí descubrirá el verdadero significado del amor y la vida.</p>
+    </div>
+</div>
+
+<div class="movie">
+    <img src="img5/el res.jpg"elresplandor.jpg" alt="Película 10">
+    <div class="sinopsis">
+        <h2>El Resplandor</h2>
+        <p>Jack Torrance acepta un trabajo como cuidador de un hotel aislado durante el invierno. A medida que el aislamiento y las fuerzas sobrenaturales lo afectan, su mente se deteriora, poniendo en peligro a su esposa e hijo.</p>
+    </div>
+</div>
+
+
+   
+
+    <footer>
+        <p>&copy; 2025 PRACTICA "CINE"</p>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(n) {
+            slides.forEach((slide) => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        } showSlide(currentSlide);
+    </script>
+</body>
+</html>
